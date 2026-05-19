@@ -198,9 +198,9 @@ CHICKEN_TYPES = [
     },
 ]
 
-a_egg = _load("egg.png", (14, 20), (255, 255, 255))
+a_egg = _load("redegg.png", (22, 30), (255, 255, 255))
 a_capsule = _load("capsule.png", (26, 26), (180, 180, 255))
-a_heart = _load("NEU.png", (48, 48), (255, 0, 0))
+a_heart = _load("heart.png", (64, 64), (255, 0, 0))
 # a_heart = pg.image.load("NEU.png")
 # a_heart = pg.transform.smoothscale(a_heart, (48, 48))
 ###############################################################################
