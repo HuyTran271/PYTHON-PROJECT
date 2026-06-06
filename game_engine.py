@@ -107,7 +107,7 @@ class Game:
             boss_chicken = Boss(
                 self.w // 2, 
                 150, 
-                self.loader.images["boss"], 
+                self.loader.images["chicken_boss"], 
                 self.level, 
                 self.eggs, 
                 self.loader.images["egg"]
@@ -434,8 +434,8 @@ class Game:
         level_txt = self.hud_font.render(f"LEVEL: {self.level}", True, (255, 255, 255))
         score_txt = self.hud_font.render(f"SCORE: {self.score}", True, (80, 255, 120))
         
-        control_name = "TAY (Webcam)" if self.control_mode == "hand" else ("CHUỘT" if self.control_mode == "mouse" else "BÀN PHÍM")
-        ctrl_txt = self.small_hud_font.render(f"ĐIỀU KHIỂN: {control_name} [C để đổi]", True, (200, 200, 200))
+        control_name = "TAY (Webcam)" if self.control_mode == "hand" else ("CHUOT" if self.control_mode == "mouse" else "BAN PHIM")
+        ctrl_txt = self.small_hud_font.render(f"DIEU KHIEN: {control_name} [C de doi]", True, (200, 200, 200))
         
         surface.blit(level_txt, (self.w - level_txt.get_width() - 20, 20))
         surface.blit(score_txt, (self.w - score_txt.get_width() - 20, 60))
@@ -542,7 +542,7 @@ class Game:
                     pg.draw.circle(self.game_surface, (255, 0, 0), (px, py), 6)
                     
                 # Chú thích nhỏ
-                cam_lbl = self.small_hud_font.render("WEBCAM ACTIVE [M để ẩn]", True, (150, 255, 150))
+                cam_lbl = self.small_hud_font.render("WEBCAM ACTIVE [M de an]", True, (150, 255, 150))
                 self.game_surface.blit(cam_lbl, (overlay_pos[0], overlay_pos[1] - 25))
 
         # 6. Vẽ Giao diện HUD
@@ -558,11 +558,11 @@ class Game:
             title = self.title_font.render("GAME OVER", True, (255, 80, 80))
             self.game_surface.blit(title, title.get_rect(center=(self.w // 2, self.h // 2 - 40)))
             
-            score_txt = self.subtitle_font.render(f"Tổng Điểm Đạt Được: {self.score}", True, (255, 255, 255))
+            score_txt = self.subtitle_font.render(f"Tong Diem Dat Duoc: {self.score}", True, (255, 255, 255))
             self.game_surface.blit(score_txt, score_txt.get_rect(center=(self.w // 2, self.h // 2 + 20)))
             
             sub = self.subtitle_font.render(
-                "Giơ ngón tay cái (Thumb Up) hoặc Click chuột / phím Space để chơi lại", 
+                "Gio ngon tay cai (Thumb Up) hoac Click chuot / phim Space de choi lai", 
                 True, 
                 (200, 200, 200)
             )

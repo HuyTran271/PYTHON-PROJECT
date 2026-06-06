@@ -26,12 +26,11 @@ class AssetsLoader:
             (40, 200, 255)
         )
         
-        # 2. Tải ảnh Trứng & Vật phẩm & Tim mạng sống
+        # 2. Tải ảnh Trứng & Vật phẩm & Tim mạng sống & Khiên bảo vệ
         self.images["egg"] = self._load_image("redegg.png", (22, 30), (255, 255, 255))
         self.images["capsule"] = self._load_image("capsule.png", (26, 26), (180, 180, 255))
         self.images["heart"] = self._load_image("heart.png", (48, 48), (255, 50, 50))
-        # Vật phẩm phụ: Khiên bảo vệ
-        self.images["shield_item"] = self._load_image("capsule.png", (26, 26), (80, 220, 255)) # Hộp khiên màu xanh sáng
+        self.images["shield_item"] = self._load_image("shield_item.png", (26, 26), (80, 220, 255)) # Hộp khiên màu xanh sáng
 
         # 3. Tải đạn cho từng cấp độ súng (4 cấp độ súng!)
         self.bullet_imgs = []
@@ -52,7 +51,7 @@ class AssetsLoader:
             self.chicken_imgs.append(chicken_surf)
 
         # Ảnh Boss (Dùng gà khó nhất phóng to, hoặc hình ảnh tương đương)
-        self.images["boss"] = self._load_image(
+        self.images["chicken_boss"] = self._load_image(
             config.BOSS_SETTINGS["img_name"], 
             config.BOSS_SETTINGS["size"], 
             config.BOSS_SETTINGS["color"]
