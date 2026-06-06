@@ -9,6 +9,7 @@ import mediapipe as mp
 from typing import Tuple, Optional
 import config
 
+
 class HandTracker:
     def __init__(self):
         self.centroid_x_norm: Optional[float] = None
@@ -71,6 +72,10 @@ class HandTracker:
         """Luồng đọc khung hình từ webcam, lật gương và đẩy vào hàng đợi."""
         while not self.stop_event.is_set():
             try:
+                if self.cam is None:
+                    self.stop_event.set()
+                    break
+                
                 ok, frame = self.cam.read()
                 if not ok:
                     self.stop_event.set()
@@ -89,7 +94,7 @@ class HandTracker:
                     except queue.Empty:
                         pass
                 
-                self.frame_queue.put((ts, frame), False)
+                self.frame_queue.put((ts, frame), False) # type:ignore
             except Exception as e:
                 print(f"⚠️ Lỗi trong luồng Capture webcam: {e}")
                 time.sleep(0.05)

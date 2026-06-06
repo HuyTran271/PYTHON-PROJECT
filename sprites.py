@@ -9,14 +9,18 @@ class Bullet(pg.sprite.Sprite):
         super().__init__()
         self.image = img
         self.rect = self.image.get_rect(center=(x, y))
+        self.x = float(self.rect.x)
+        self.y = float(self.rect.y)
         self.vx = vx
         self.vy = vy
         # Sát thương gây ra (Cấp càng cao sát thương càng mạnh)
         self.dmg = 1 if level < 3 else 2
 
     def update(self, w: int, h: int):
-        self.rect.x += self.vx
-        self.rect.y += self.vy
+        self.x += self.vx
+        self.y += self.vy
+        self.rect.x = int(self.x)
+        self.rect.y = int(self.y)
         # Tự hủy khi ra khỏi màn hình
         if (self.rect.bottom < 0 or self.rect.top > h or 
             self.rect.right < 0 or self.rect.left > w):
@@ -28,12 +32,16 @@ class Egg(pg.sprite.Sprite):
         super().__init__()
         self.image = img
         self.rect = self.image.get_rect(center=(x, y))
+        self.x = float(self.rect.x)
+        self.y = float(self.rect.y)
         self.vx = vx
         self.vy = vy
 
     def update(self, w: int, h: int):
-        self.rect.x += self.vx
-        self.rect.y += self.vy
+        self.x += self.vx
+        self.y += self.vy
+        self.rect.x = int(self.x)
+        self.rect.y = int(self.y)
         if self.rect.top > h or self.rect.bottom < 0 or self.rect.left > w or self.rect.right < 0:
             self.kill()
 
@@ -46,10 +54,13 @@ class PowerUp(pg.sprite.Sprite):
         self.p_type = p_type  # "gun", "shield", "heart"
         self.image = img
         self.rect = self.image.get_rect(center=(x, y))
+        self.x = float(self.rect.x)
+        self.y = float(self.rect.y)
         self.vy = 3.0
 
     def update(self, w: int, h: int):
-        self.rect.y += self.vy
+        self.y += self.vy
+        self.rect.y = int(self.y)
         if self.rect.top > h:
             self.kill()
 
@@ -196,6 +207,9 @@ class Particle(pg.sprite.Sprite):
         pg.draw.circle(self.image, (*color, 255), (self.size // 2, self.size // 2), self.size // 2)
         
         self.rect = self.image.get_rect(center=(x, y))
+
+        self.x = float(self.rect.x)
+        self.y = float(self.rect.y)
         
         # Vận tốc toả đều 360 độ
         angle = random.uniform(0, 2 * math.pi)
@@ -208,8 +222,10 @@ class Particle(pg.sprite.Sprite):
         self.gravity = 0.08  # Rơi nhẹ xuống dưới tạo vẻ tự nhiên
 
     def update(self, w: int, h: int):
-        self.rect.x += self.vx
-        self.rect.y += self.vy
+        self.x += self.vx
+        self.y += self.vy
+        self.rect.x = int(self.x)
+        self.rect.y = int(self.vy)
         self.vy += self.gravity
         
         # Giảm kích thước và độ trong suốt
