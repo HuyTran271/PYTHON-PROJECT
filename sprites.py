@@ -225,7 +225,7 @@ class Particle(pg.sprite.Sprite):
         self.x += self.vx
         self.y += self.vy
         self.rect.x = int(self.x)
-        self.rect.y = int(self.vy)
+        self.rect.y = int(self.y)
         self.vy += self.gravity
         
         # Giảm kích thước và độ trong suốt
