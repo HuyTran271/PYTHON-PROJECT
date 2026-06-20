@@ -50,7 +50,7 @@ class AssetsLoader:
             chicken_surf = self._load_image(breed["img_name"], breed["size"], breed["color"])
             self.chicken_imgs.append(chicken_surf)
 
-        # Ảnh Boss (Dùng gà khó nhất phóng to, hoặc hình ảnh tương đương)
+        # Ảnh Boss
         self.images["chicken_boss"] = self._load_image(
             config.BOSS_SETTINGS["img_name"], 
             config.BOSS_SETTINGS["size"], 

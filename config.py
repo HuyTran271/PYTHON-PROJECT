@@ -62,7 +62,7 @@ CHICKEN_BREEDS = [
 
 # Boss Chicken Settings
 BOSS_SETTINGS = {
-    "img_name": "chicken_boss.png", # Có thể thay bằng hình ảnh Boss riêng nếu có
+    "img_name": "chicken_boss.png", 
     "size": (200, 200),
     "color": (255, 50, 50),
     "hp_base": 20,       # Máu cơ bản của Boss (sẽ tăng theo màn chơi)

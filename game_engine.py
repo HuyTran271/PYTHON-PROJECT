@@ -19,7 +19,7 @@ class Game:
         
         # Thiết lập cửa sổ Fullscreen
         pg.display.set_caption("Chicken Invaders – Hand & Fallback Edition")
-        self.screen = pg.display.set_mode((self.w, self.h), pg.FULLSCREEN)
+        self.screen = pg.display.set_mode((self.w, self.h), pg.RESIZABLE)
         
         # Surface đệm để hỗ trợ hiệu ứng rung màn hình (Screen Shake)
         self.game_surface = pg.Surface((self.w, self.h))
