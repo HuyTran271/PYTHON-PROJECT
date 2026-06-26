@@ -1,0 +1,5 @@
+#test file
+test*
+
+#cache
+__pycache__/

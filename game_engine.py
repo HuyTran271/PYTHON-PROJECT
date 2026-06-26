@@ -130,7 +130,6 @@ class Game:
                     y = 120 + r * 75
                     new_ch = Chicken(
                         x, y, 
-                        tier, 
                         chicken_img, 
                         self.level, 
                         breed_data, 
